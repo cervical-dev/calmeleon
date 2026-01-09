@@ -8,8 +8,15 @@
 </head>
 
 <body>
-	<main id="app" class="flex justify-center gap-4 mx-auto">
-		<h1>Calmeleon</h1>
+	<main id="app" class="flex flex-col justify-center gap-4 px-2 mx-auto lg:max-w-3/4" x-data="calmeleon">
+		<h1 class="text-2xl mt-4">Calmeleon</h1>
+		<p>A calendar visualisation tool</p>
+		<textarea class="textarea w-full" placeholder="paste ics data here" x-model="textdata"
+			@keyup.debounce.500ms="updateCalendar()"></textarea>
+		<div>
+			<button class="btn" @click="loadSample()">Load sample</button>
+		</div>
+		<div id="calendar"></div>
 	</main>
 	<script type="module" src="/src/main.ts"></script>
 </body>
